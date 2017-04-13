@@ -11,6 +11,12 @@ import UIKit
 
 class TopicCell: UITableViewCell
 {
+    @IBOutlet weak var topicLabel: UILabel!
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var downButton: UIButton!
+    
+    
     func populateData()
     {
         print("populate data")

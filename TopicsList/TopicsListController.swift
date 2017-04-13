@@ -10,16 +10,19 @@ import UIKit
 
 class TopicsListController: UITableViewController {
     
-    let addTopicButton : UIBarButtonItem = {
-        let btn = UIBarButtonItem(title: "Add Topic", style: .plain, target: self, action: #selector(addTopic))
+    //create Add Topic navigation button programatically
+    lazy var addTopicButton : UIBarButtonItem = {
+        let btn = UIBarButtonItem(title: "Add Topic", style: .plain, target: self, action: #selector(self.addTopic))
         return btn
     }()
 
     
     func addTopic()
     {
-        //TODO: launch new topic screen here
-        print("add topic")
+        //launch New Topic screen programatically
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let addTopicController = storyboard.instantiateViewController(withIdentifier: "addTopicController")
+        self.navigationController?.pushViewController(addTopicController, animated: true)
     }
     
     override func viewDidLoad() {
@@ -53,7 +56,7 @@ class TopicsListController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 90
     }
 
 }

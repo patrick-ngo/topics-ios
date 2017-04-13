@@ -15,6 +15,7 @@
 		C47196731E9F5ACE00516DC5 /* TopicsListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47196721E9F5ACE00516DC5 /* TopicsListTests.swift */; };
 		C471967E1E9F5ACE00516DC5 /* TopicsListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C471967D1E9F5ACE00516DC5 /* TopicsListUITests.swift */; };
 		C471968C1E9F5F8B00516DC5 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C471968B1E9F5F8B00516DC5 /* TopicCell.swift */; };
+		C4DE4C081E9FD31300603E80 /* AddTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DE4C071E9FD31300603E80 /* AddTopicController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C471967D1E9F5ACE00516DC5 /* TopicsListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsListUITests.swift; sourceTree = "<group>"; };
 		C471967F1E9F5ACE00516DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C471968B1E9F5F8B00516DC5 /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
+		C4DE4C071E9FD31300603E80 /* AddTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTopicController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				C471965F1E9F5ACE00516DC5 /* TopicsListController.swift */,
+				C4DE4C071E9FD31300603E80 /* AddTopicController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				C47196601E9F5ACE00516DC5 /* TopicsListController.swift in Sources */,
 				C471968C1E9F5F8B00516DC5 /* TopicCell.swift in Sources */,
 				C471965E1E9F5ACE00516DC5 /* AppDelegate.swift in Sources */,
+				C4DE4C081E9FD31300603E80 /* AddTopicController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +531,7 @@
 				C47196841E9F5ACE00516DC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C47196851E9F5ACE00516DC5 /* Build configuration list for PBXNativeTarget "TopicsListTests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +540,7 @@
 				C47196871E9F5ACE00516DC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C47196881E9F5ACE00516DC5 /* Build configuration list for PBXNativeTarget "TopicsListUITests" */ = {
 			isa = XCConfigurationList;
@@ -543,6 +549,7 @@
 				C471968A1E9F5ACE00516DC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
