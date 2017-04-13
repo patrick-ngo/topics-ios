@@ -45,18 +45,18 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAd-Yk-sOG">
-                                            <rect key="frame" x="308" y="8" width="46" height="30"/>
+                                            <rect key="frame" x="308" y="-7" width="46" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="46" id="3TJ-Fe-5Ee"/>
                                             </constraints>
-                                            <state key="normal" title="Up"/>
+                                            <state key="normal" title="Up" image="arrow-up"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDD-Sx-S6d">
-                                            <rect key="frame" x="308" y="54" width="46" height="30"/>
+                                            <rect key="frame" x="308" y="39.5" width="46" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="46" id="e27-Wr-P0m"/>
                                             </constraints>
-                                            <state key="normal" title="Down"/>
+                                            <state key="normal" image="arrow-down"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaF-Bl-v9m">
                                             <rect key="frame" x="8" y="70.5" width="292" height="14.5"/>
@@ -74,10 +74,10 @@
                                         <constraint firstItem="FdF-Xa-Qds" firstAttribute="centerY" secondItem="Aht-mt-cEs" secondAttribute="centerY" id="HzO-d4-Bgp"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="SaF-Bl-v9m" secondAttribute="bottom" id="JUK-CC-Uwc"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gAd-Yk-sOG" secondAttribute="trailing" constant="13" id="ZRN-6K-y0F"/>
-                                        <constraint firstAttribute="topMargin" secondItem="gAd-Yk-sOG" secondAttribute="top" id="acK-zU-1wk"/>
+                                        <constraint firstAttribute="topMargin" secondItem="gAd-Yk-sOG" secondAttribute="top" constant="15" id="acK-zU-1wk"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="SaF-Bl-v9m" secondAttribute="leading" id="cit-se-mV3"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="HDD-Sx-S6d" secondAttribute="trailing" constant="13" id="hOZ-7F-Ftj"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="HDD-Sx-S6d" secondAttribute="bottom" constant="0.5" id="qXB-yS-IpV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="HDD-Sx-S6d" secondAttribute="bottom" constant="-15" id="qXB-yS-IpV"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="FdF-Xa-Qds" secondAttribute="leading" id="uwf-gT-qMa"/>
                                         <constraint firstItem="UYP-s7-toJ" firstAttribute="centerY" secondItem="Aht-mt-cEs" secondAttribute="centerY" id="zqg-cs-rVk"/>
                                     </constraints>
@@ -192,4 +192,8 @@
             <point key="canvasLocation" x="-1194" y="-626"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow-down" width="60" height="60"/>
+        <image name="arrow-up" width="60" height="60"/>
+    </resources>
 </document>
