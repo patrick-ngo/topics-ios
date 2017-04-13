@@ -17,6 +17,25 @@ class TopicCell: UITableViewCell
     @IBOutlet weak var upButton: UIButton!
     @IBOutlet weak var downButton: UIButton!
     
+    var delegate:TopicListDelegate?
+    
+
+    override func awakeFromNib()
+    {
+        upButton.addTarget(self, action: #selector(upvote), for: .touchUpInside)
+        downButton.addTarget(self, action: #selector(downvote), for: .touchUpInside)
+    }
+    
+    func upvote()
+    {
+        //TODO: upvote logic
+    }
+    
+    func downvote()
+    {
+        //TODO: downvote logic
+    }
+    
     var topic:Topic?
     {
         didSet
