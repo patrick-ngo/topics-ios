@@ -10,12 +10,27 @@ import UIKit
 
 class TopicsListController: UITableViewController {
     
+    
+    var topics: [Topic]?
+    
     //create Add Topic navigation button programatically
     lazy var addTopicButton : UIBarButtonItem = {
         let btn = UIBarButtonItem(title: "Add Topic", style: .plain, target: self, action: #selector(self.addTopic))
         return btn
     }()
+    
+    //MOCK DATA
+    func setupMockData()
+    {
+        let dummyTopic = Topic()
+        dummyTopic.downvotes = 10
+        dummyTopic.upvotes = 22
+        dummyTopic.topicText = "This is a topic"
+        dummyTopic.username = "Patrick"
+        topics?.append(dummyTopic)
 
+        self.tableView.reloadData()
+    }
     
     func addTopic()
     {
@@ -30,6 +45,11 @@ class TopicsListController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.navigationItem.rightBarButtonItem = addTopicButton
+        
+        topics = [Topic]()
+        
+        //create temporary mock data
+        self.setupMockData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,21 +58,25 @@ class TopicsListController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        
+        if let count = topics?.count {
+            return count
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "TopicCell") as? TopicCell
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TopicCell", for: indexPath) as! TopicCell
+
+        if let topic = topics?[indexPath.item]
         {
-            cell.populateData()
-            return cell
+            cell.topic = topic
         }
-        else
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TopicCell", for: indexPath)
-            return cell
-        }
+        
+        return cell
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

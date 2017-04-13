@@ -16,6 +16,7 @@
 		C471967E1E9F5ACE00516DC5 /* TopicsListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C471967D1E9F5ACE00516DC5 /* TopicsListUITests.swift */; };
 		C471968C1E9F5F8B00516DC5 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C471968B1E9F5F8B00516DC5 /* TopicCell.swift */; };
 		C4DE4C081E9FD31300603E80 /* AddTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DE4C071E9FD31300603E80 /* AddTopicController.swift */; };
+		C4DE4C0B1E9FE86600603E80 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DE4C0A1E9FE86600603E80 /* Topic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		C471967F1E9F5ACE00516DC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C471968B1E9F5F8B00516DC5 /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		C4DE4C071E9FD31300603E80 /* AddTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTopicController.swift; sourceTree = "<group>"; };
+		C4DE4C0A1E9FE86600603E80 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				C471968E1E9F61DF00516DC5 /* Cells */,
+				C4DE4C091E9FE84B00603E80 /* Model */,
 				C471968D1E9F61C500516DC5 /* ViewControllers */,
 				C471965D1E9F5ACE00516DC5 /* AppDelegate.swift */,
 				C47196611E9F5ACE00516DC5 /* Main.storyboard */,
@@ -145,6 +148,14 @@
 				C471968B1E9F5F8B00516DC5 /* TopicCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		C4DE4C091E9FE84B00603E80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4DE4C0A1E9FE86600603E80 /* Topic.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C47196601E9F5ACE00516DC5 /* TopicsListController.swift in Sources */,
+				C4DE4C0B1E9FE86600603E80 /* Topic.swift in Sources */,
 				C471968C1E9F5F8B00516DC5 /* TopicCell.swift in Sources */,
 				C471965E1E9F5ACE00516DC5 /* AppDelegate.swift in Sources */,
 				C4DE4C081E9FD31300603E80 /* AddTopicController.swift in Sources */,

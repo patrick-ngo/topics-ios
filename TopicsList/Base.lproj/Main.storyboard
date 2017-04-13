@@ -26,7 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdF-Xa-Qds">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the meaning of life?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdF-Xa-Qds">
                                             <rect key="frame" x="8" y="36" width="248" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="248" id="wb9-PE-xLp"/>
@@ -58,13 +58,24 @@
                                             </constraints>
                                             <state key="normal" title="Down"/>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaF-Bl-v9m">
+                                            <rect key="frame" x="8" y="70.5" width="292" height="14.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="292" id="zcD-A6-2rT"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="UYP-s7-toJ" secondAttribute="trailing" id="DbK-LD-M20"/>
                                         <constraint firstItem="FdF-Xa-Qds" firstAttribute="centerY" secondItem="Aht-mt-cEs" secondAttribute="centerY" id="HzO-d4-Bgp"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="SaF-Bl-v9m" secondAttribute="bottom" id="JUK-CC-Uwc"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gAd-Yk-sOG" secondAttribute="trailing" constant="13" id="ZRN-6K-y0F"/>
                                         <constraint firstAttribute="topMargin" secondItem="gAd-Yk-sOG" secondAttribute="top" id="acK-zU-1wk"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="SaF-Bl-v9m" secondAttribute="leading" id="cit-se-mV3"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="HDD-Sx-S6d" secondAttribute="trailing" constant="13" id="hOZ-7F-Ftj"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="HDD-Sx-S6d" secondAttribute="bottom" constant="0.5" id="qXB-yS-IpV"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="FdF-Xa-Qds" secondAttribute="leading" id="uwf-gT-qMa"/>
@@ -76,6 +87,7 @@
                                     <outlet property="downButton" destination="HDD-Sx-S6d" id="Mw5-94-JQT"/>
                                     <outlet property="topicLabel" destination="FdF-Xa-Qds" id="io6-nh-md5"/>
                                     <outlet property="upButton" destination="gAd-Yk-sOG" id="fX4-gp-OZe"/>
+                                    <outlet property="usernameLabel" destination="SaF-Bl-v9m" id="5Uu-GF-u7u"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
