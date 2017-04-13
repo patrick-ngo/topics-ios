@@ -9,10 +9,24 @@
 import UIKit
 
 class TopicsListController: UITableViewController {
+    
+    let addTopicButton : UIBarButtonItem = {
+        let btn = UIBarButtonItem(title: "Add Topic", style: .plain, target: self, action: #selector(addTopic))
+        return btn
+    }()
 
+    
+    func addTopic()
+    {
+        //TODO: launch new topic screen here
+        print("add topic")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.navigationItem.rightBarButtonItem = addTopicButton
     }
 
     override func didReceiveMemoryWarning() {
