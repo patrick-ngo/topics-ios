@@ -8,16 +8,23 @@
 
 import UIKit
 
-class TopicsListController: UITableViewController {
-    
-    
+class TopicsListController: UITableViewController
+{
     var topics: [Topic]?
+
     
-    //create Add Topic navigation button programatically
-    lazy var addTopicButton : UIBarButtonItem = {
-        let btn = UIBarButtonItem(title: "Add Topic", style: .plain, target: self, action: #selector(self.addTopic))
-        return btn
-    }()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        //create Add Topic navigation button programatically
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Topic", style: .plain, target: self, action: #selector(self.addTopic))
+        
+        //create array
+        self.topics = [Topic]()
+        
+        //create temporary mock data
+        self.setupMockData()
+    }
     
     //MOCK DATA
     func setupMockData()
@@ -28,7 +35,7 @@ class TopicsListController: UITableViewController {
         dummyTopic.topicText = "This is a topic"
         dummyTopic.username = "Patrick"
         topics?.append(dummyTopic)
-
+        
         self.tableView.reloadData()
     }
     
@@ -40,34 +47,21 @@ class TopicsListController: UITableViewController {
         self.navigationController?.pushViewController(addTopicController, animated: true)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    //MARK: tableView
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         
-        self.navigationItem.rightBarButtonItem = addTopicButton
-        
-        topics = [Topic]()
-        
-        //create temporary mock data
-        self.setupMockData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if let count = topics?.count {
+        if let count = topics?.count
+        {
             return count
         }
         return 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TopicCell", for: indexPath) as! TopicCell
 
         if let topic = topics?[indexPath.item]
@@ -76,10 +70,11 @@ class TopicsListController: UITableViewController {
         }
         
         return cell
-        
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        
         return 90
     }
 
