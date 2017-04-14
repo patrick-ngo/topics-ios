@@ -54,22 +54,25 @@ class AddTopicController: UIViewController, UITextFieldDelegate
     
     func submit()
     {
-        if let delegate = delegate
+        if let topicText = topicTextfield.text, let username = usernameTextfield.text, let delegate = delegate
         {
             let topic = Topic()
- 
-            if let topicText = topicTextfield.text
-            {
-                topic.topicText = topicText
-            }
+            topic.topicText = topicText
+            topic.username = username
             
-            if let username = usernameTextfield.text
+            //if valid topic and username, add to data source and go back to Topics List controller
+            if topicText.characters.count > 0 && username.characters.count > 0
             {
-                topic.username = username
+                delegate.addTopic(topic: topic)
+                self.navigationController?.popViewController(animated: true)
             }
-            
-            delegate.addTopic(topic: topic)
-            self.navigationController?.popViewController(animated: true)
+            //if not valid, show alert view
+            else
+            {
+                let alert = UIAlertController(title: "Invalid", message: "Please enter a valid topic and username", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
 
