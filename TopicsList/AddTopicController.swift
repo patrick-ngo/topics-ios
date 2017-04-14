@@ -8,8 +8,10 @@
 
 import UIKit
 
-class AddTopicController: UIViewController
+class AddTopicController: UIViewController, UITextFieldDelegate
 {
+    let CHAR_LIMIT = 255
+    
     var delegate: TopicListDelegate?
     
     @IBOutlet weak var topicTextfield: UITextField!
@@ -21,6 +23,23 @@ class AddTopicController: UIViewController
         super.viewDidLoad()
         
         submitButton.addTarget(self, action: #selector(submit), for: .touchUpInside)
+        
+        topicTextfield.delegate = self
+        usernameTextfield.delegate = self
+    }
+    
+    //limit characters to 255
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
+    {
+        let currentCharacterCount = textField.text?.characters.count ?? 0
+        
+        if (range.length + range.location > currentCharacterCount)
+        {
+            return false
+        }
+        
+        let newLength = currentCharacterCount + string.characters.count - range.length
+        return newLength <= CHAR_LIMIT
     }
     
     func submit()
@@ -28,7 +47,7 @@ class AddTopicController: UIViewController
         if let delegate = delegate
         {
             let topic = Topic()
-            
+ 
             if let topicText = topicTextfield.text
             {
                 topic.topicText = topicText
@@ -43,4 +62,5 @@ class AddTopicController: UIViewController
             self.navigationController?.popViewController(animated: true)
         }
     }
+
 }

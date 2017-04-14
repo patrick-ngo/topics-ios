@@ -11,6 +11,5 @@ import Foundation
 protocol TopicListDelegate
 {
     func addTopic(topic: Topic)
-    func topicUpvoted()
-    func topicDownvoted()
+    func topicDataChanged()
 }

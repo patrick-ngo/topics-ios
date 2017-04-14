@@ -10,6 +10,11 @@ import UIKit
 
 class TopicsListController: UITableViewController, TopicListDelegate
 {
+    //max number of topics shown - 20
+    static var MAX_NUM_TOPICS_SHOWN = 20
+    
+    
+    //in-memory data structure to keep all the topics, using a Swift mutable array
     var topics: [Topic]?
 
     
@@ -24,17 +29,17 @@ class TopicsListController: UITableViewController, TopicListDelegate
         self.topics = [Topic]()
         
         //create temporary mock data
-//        self.setupMockData()
+        self.setupMockData()
     }
     
     //create mock data to populate table
     func setupMockData()
     {
-        for i in 0...25
+        for i in 0...10
         {
             let dummyTopic = Topic()
             dummyTopic.downvotes = 10
-            dummyTopic.upvotes = 22
+            dummyTopic.upvotes = 15
             dummyTopic.topicText = "This is a test topic \(i)"
             dummyTopic.username = "user\(i)"
             self.topics?.append(dummyTopic)
@@ -42,6 +47,7 @@ class TopicsListController: UITableViewController, TopicListDelegate
         self.tableView.reloadData()
     }
     
+    //when Add Topic button pressed
     func addTopicPressed()
     {
         //launch New Topic screen programatically
@@ -51,39 +57,42 @@ class TopicsListController: UITableViewController, TopicListDelegate
         self.navigationController?.pushViewController(addTopicController, animated: true)
     }
     
+    //sort topics by the count (upvotes - downvotes)
+    func sortTopicsByCount()
+    {
+        topics?.sort(by: { $0.count > $1.count} )
+        self.tableView.reloadData()
+    }
+    
+    
+    //MARK: - TopicListDelegate
     func addTopic(topic: Topic)
     {
         //add a topic and reload the table
         self.topics?.append(topic)
-        self.tableView.reloadData()
+        self.sortTopicsByCount()
     }
     
-    func topicUpvoted()
+    func topicDataChanged()
     {
         //TODO: resort table here
-        self.tableView.reloadData()
+        self.sortTopicsByCount()
     }
-    
-    func topicDownvoted()
-    {
-        //TODO: resort table here
-        self.tableView.reloadData()
-    }
-    
-    //MARK: tableView
+
+    //MARK: - tableView
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if let count = topics?.count
         {
             //if less than 20 items, return all items
-            if count <= 20
+            if count <= TopicsListController.MAX_NUM_TOPICS_SHOWN
             {
                 return count
             }
             //if more than 20 items, only show 20
             else
             {
-                return 20
+                return TopicsListController.MAX_NUM_TOPICS_SHOWN
             }
         }
         return 0
