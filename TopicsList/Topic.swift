@@ -12,7 +12,7 @@ class Topic
 {
     var topicText = ""
     var username = ""
-    var count: Int = 0
+    private(set) var count: Int = 0
     
     var upvotes: Int = 0
     {

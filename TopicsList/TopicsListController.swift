@@ -55,7 +55,6 @@ class TopicsListController: UITableViewController, TopicListDelegate
     
     func topicDataChanged()
     {
-        //TODO: resort table here
         self.sortTopicsByCount()
     }
 
