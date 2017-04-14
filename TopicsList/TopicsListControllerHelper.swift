@@ -20,7 +20,7 @@ extension TopicsListController
             dummyTopic.upvotes = 15
             dummyTopic.topicText = "This is a test topic \(i)"
             dummyTopic.username = "user\(i)"
-            self.topics?.append(dummyTopic)
+            self.topics.append(dummyTopic)
         }
         self.tableView.reloadData()
     }

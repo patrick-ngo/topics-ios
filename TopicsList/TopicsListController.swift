@@ -15,7 +15,7 @@ class TopicsListController: UITableViewController, TopicListDelegate
     
     
     //in-memory data structure to keep all the topics, using a Swift mutable array
-    var topics: [Topic]?
+    var topics = [Topic]()
 
     
     override func viewDidLoad()
@@ -24,9 +24,6 @@ class TopicsListController: UITableViewController, TopicListDelegate
 
         //create Add Topic navigation button programatically
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Topic", style: .plain, target: self, action: #selector(self.addTopicPressed))
-        
-        //create array
-        self.topics = [Topic]()
     }
     
     
@@ -43,7 +40,7 @@ class TopicsListController: UITableViewController, TopicListDelegate
     //sort topics by the count (upvotes - downvotes)
     func sortTopicsByCount()
     {
-        topics?.sort(by: { $0.count > $1.count} )
+        topics.sort(by: { $0.count > $1.count} )
         self.tableView.reloadData()
     }
     
@@ -52,7 +49,7 @@ class TopicsListController: UITableViewController, TopicListDelegate
     func addTopic(topic: Topic)
     {
         //add a topic and reload the table
-        self.topics?.append(topic)
+        self.topics.append(topic)
         self.sortTopicsByCount()
     }
     
@@ -65,20 +62,18 @@ class TopicsListController: UITableViewController, TopicListDelegate
     //MARK: - tableView
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        if let count = topics?.count
+        let count = topics.count
+        
+        //if less than 20 items, return all items
+        if count <= TopicsListController.MAX_NUM_TOPICS_SHOWN
         {
-            //if less than 20 items, return all items
-            if count <= TopicsListController.MAX_NUM_TOPICS_SHOWN
-            {
-                return count
-            }
-            //if more than 20 items, only show 20
-            else
-            {
-                return TopicsListController.MAX_NUM_TOPICS_SHOWN
-            }
+            return count
         }
-        return 0
+        //if more than 20 items, only show 20
+        else
+        {
+            return TopicsListController.MAX_NUM_TOPICS_SHOWN
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -87,7 +82,7 @@ class TopicsListController: UITableViewController, TopicListDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "TopicCell", for: indexPath) as! TopicCell
         
         //set topic and delegate
-        cell.topic = topics?[indexPath.item]
+        cell.topic = topics[indexPath.item]
         cell.delegate = self
         
         return cell
