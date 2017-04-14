@@ -23,29 +23,12 @@ class TopicsListController: UITableViewController, TopicListDelegate
         super.viewDidLoad()
 
         //create Add Topic navigation button programatically
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Topic", style: .plain, target: self, action: #selector(self.addTopicPressed))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Topic", style: .plain, target: self, action: #selector(self.addTopicPressed))
         
         //create array
         self.topics = [Topic]()
-        
-        //create temporary mock data
-        self.setupMockData()
     }
     
-    //create mock data to populate table
-    func setupMockData()
-    {
-        for i in 0...10
-        {
-            let dummyTopic = Topic()
-            dummyTopic.downvotes = 10
-            dummyTopic.upvotes = 15
-            dummyTopic.topicText = "This is a test topic \(i)"
-            dummyTopic.username = "user\(i)"
-            self.topics?.append(dummyTopic)
-        }
-        self.tableView.reloadData()
-    }
     
     //when Add Topic button pressed
     func addTopicPressed()

@@ -24,8 +24,18 @@ class AddTopicController: UIViewController, UITextFieldDelegate
         
         submitButton.addTarget(self, action: #selector(submit), for: .touchUpInside)
         
+        //create gesture recognizer to detect taps on main view
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapOutside(_:)))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
+        
         topicTextfield.delegate = self
         usernameTextfield.delegate = self
+    }
+    
+    //if tap on main view, dismiss keyboard
+    func tapOutside(_ recognizer: UIGestureRecognizer)
+    {
+        self.view.endEditing(true)
     }
     
     //limit characters to 255

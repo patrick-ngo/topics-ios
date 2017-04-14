@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Topics-->
+        <!--Trending Topics-->
         <scene sceneID="AST-JE-wb9">
             <objects>
                 <tableViewController id="y2X-GX-bjh" customClass="TopicsListController" customModule="TopicsList" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,15 +23,12 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="42A-iB-XPQ" id="Aht-mt-cEs">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="92.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the meaning of life?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdF-Xa-Qds">
-                                            <rect key="frame" x="16" y="36" width="292" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="292" id="wb9-PE-xLp"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="16" y="36" width="279" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -40,7 +37,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="72" id="qVH-2C-stV"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -63,7 +60,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="292" id="zcD-A6-2rT"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -73,6 +70,7 @@
                                         <constraint firstItem="UYP-s7-toJ" firstAttribute="trailing" secondItem="Aht-mt-cEs" secondAttribute="trailingMargin" id="DbK-LD-M20"/>
                                         <constraint firstItem="FdF-Xa-Qds" firstAttribute="centerY" secondItem="Aht-mt-cEs" secondAttribute="centerY" id="HzO-d4-Bgp"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="SaF-Bl-v9m" secondAttribute="bottom" id="JUK-CC-Uwc"/>
+                                        <constraint firstItem="FdF-Xa-Qds" firstAttribute="trailing" secondItem="UYP-s7-toJ" secondAttribute="leading" id="Lcq-1N-jNu"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gAd-Yk-sOG" secondAttribute="trailing" constant="13" id="ZRN-6K-y0F"/>
                                         <constraint firstAttribute="topMargin" secondItem="gAd-Yk-sOG" secondAttribute="top" constant="15" id="acK-zU-1wk"/>
                                         <constraint firstItem="SaF-Bl-v9m" firstAttribute="leading" secondItem="Aht-mt-cEs" secondAttribute="leadingMargin" constant="8" id="cit-se-mV3"/>
@@ -97,7 +95,7 @@
                             <outlet property="delegate" destination="y2X-GX-bjh" id="4Dt-cG-rse"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Topics" id="16M-Wz-U27"/>
+                    <navigationItem key="navigationItem" title="Trending Topics" id="16M-Wz-U27"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6SR-df-vK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
