@@ -26,7 +26,7 @@ class AddTopicController: UIViewController, UITextFieldDelegate
         
         //create gesture recognizer to detect taps on main view
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapOutside(_:)))
-        self.view.addGestureRecognizer(tapGestureRecognizer)
+        view.addGestureRecognizer(tapGestureRecognizer)
         
         topicTextfield.delegate = self
         usernameTextfield.delegate = self
@@ -35,7 +35,7 @@ class AddTopicController: UIViewController, UITextFieldDelegate
     //if tap on main view, dismiss keyboard
     func tapOutside(_ recognizer: UIGestureRecognizer)
     {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     //limit characters to 255
@@ -64,14 +64,14 @@ class AddTopicController: UIViewController, UITextFieldDelegate
             if topicText.characters.count > 0 && username.characters.count > 0
             {
                 delegate.addTopic(topic: topic)
-                self.navigationController?.popViewController(animated: true)
+                navigationController?.popViewController(animated: true)
             }
             //if not valid, show alert view
             else
             {
                 let alert = UIAlertController(title: "Invalid", message: "Please enter a valid topic and username", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                present(alert, animated: true, completion: nil)
             }
         }
     }

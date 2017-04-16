@@ -25,29 +25,44 @@ class TopicCell: UITableViewCell
     {
         containerView.roundCorners()
         
+        //set target actions for up and down buttons
         upButton.addTarget(self, action: #selector(upvote), for: .touchUpInside)
         downButton.addTarget(self, action: #selector(downvote), for: .touchUpInside)
     }
     
-    func upvote()
+    @objc fileprivate func upvote()
     {
-        topic?.upvotes += 1
-        delegate?.topicDataChanged()
+        //increment upvote and refresh data
+        if let topic = topic
+        {
+            topic.upvotes += 1
+            delegate?.topicDataChanged()
+        }
+        
     }
     
-    func downvote()
+    @objc fileprivate func downvote()
     {
-        topic?.upvotes -= 1
-        delegate?.topicDataChanged()
+        //increment downvotes and refresh data
+        if let topic = topic
+        {
+            topic.downvotes += 1
+            delegate?.topicDataChanged()
+        }
     }
     
     var topic:Topic?
     {
+        //after topic set, automatically set corresponding ui
         didSet
         {
             topicLabel.text = topic?.topicText
-            countLabel.text = String(topic!.count)
             usernameLabel.text = topic?.username
+            
+            if let count = topic?.count
+            {
+                countLabel.text = String(count)
+            }
         }
     }
 }

@@ -8,6 +8,13 @@
 
 import UIKit
 
+//delegate for TopicsListController
+protocol TopicListDelegate
+{
+    func addTopic(topic: Topic)
+    func topicDataChanged()
+}
+
 class TopicsListController: UITableViewController, TopicListDelegate
 {
     //max number of topics shown - 20
@@ -23,7 +30,7 @@ class TopicsListController: UITableViewController, TopicListDelegate
         super.viewDidLoad()
 
         //create Add Topic navigation button programatically
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Topic", style: .plain, target: self, action: #selector(self.addTopicPressed))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Topic", style: .plain, target: self, action: #selector(self.addTopicPressed))
     }
     
     
@@ -34,14 +41,14 @@ class TopicsListController: UITableViewController, TopicListDelegate
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let addTopicController = storyboard.instantiateViewController(withIdentifier: "addTopicController") as! AddTopicController
         addTopicController.delegate = self
-        self.navigationController?.pushViewController(addTopicController, animated: true)
+        navigationController?.pushViewController(addTopicController, animated: true)
     }
     
     //sort topics by the count (upvotes - downvotes)
     func sortTopicsByCount()
     {
         topics.sort(by: { $0.count > $1.count} )
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     
@@ -49,13 +56,13 @@ class TopicsListController: UITableViewController, TopicListDelegate
     func addTopic(topic: Topic)
     {
         //add a topic and reload the table
-        self.topics.append(topic)
-        self.sortTopicsByCount()
+        topics.append(topic)
+        sortTopicsByCount()
     }
     
     func topicDataChanged()
     {
-        self.sortTopicsByCount()
+        sortTopicsByCount()
     }
 
     //MARK: - tableView

@@ -12,10 +12,13 @@ class Topic
 {
     var topicText = ""
     var username = ""
+    
+    //count is the value used to determine the popularity of a post
     private(set) var count: Int = 0
     
     var upvotes: Int = 0
     {
+        //after setting upvotes, automatically recalculate the count
         didSet
         {
             recount()
@@ -23,13 +26,15 @@ class Topic
     }
     var downvotes: Int = 0
     {
+        //after setting downvotes, automatically recalculate the count
         didSet
         {
             recount()
         }
     }
     
-    func recount()
+    //recount by calculating differencing between upvotes and downvotes
+    fileprivate func recount()
     {
         count = upvotes - downvotes
     }
